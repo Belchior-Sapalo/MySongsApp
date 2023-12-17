@@ -1,0 +1,605 @@
+/* configurações gerais */
+
+@charset "UTF-8";
+
+@font-face {
+    font-family:'normal';
+    src: url(../ASSETS/fontes/Poppins-Light.ttf) format(truetype);
+}
+
+@font-face {
+    font-family:'bold';
+    src: url(../ASSETS/fontes/Montserrat-Bold.ttf) format(truetype);
+}
+
+@font-face {
+    font-family:'small';
+    src: url(../ASSETS/fontes/Poppins-Thin.ttf) format(truetype);
+}
+
+@font-face {
+    font-family:'other';
+    src: url(../ASSETS/fontes/Montserrat-Bold.ttf) format(truetype);
+}
+
+:root{
+    /* colors */
+    --cor1: #F2F2F2;
+    --cor2: rgb(140, 140, 140);
+    --cor3: rgb(89, 89, 88);
+    --cor4: #25261f;
+    --cor5: #0d0d06;
+    --cor6:#D92344;
+
+    /* fonts */
+    --normal: 'normal';
+    --bold: 'bold';
+    --small: 'small';
+    --other: 'other';
+
+    /* transition */
+    --general-transition: all .3s ease;
+}
+
+#body.dark{
+    --cor1: #0d0d06;
+    --cor5: rgb(140, 140, 140);
+    --cor2: #25261f;
+}
+
+html{
+    scroll-behavior: smooth;
+};
+
+*{
+  
+}
+
+body{
+    font-family: var(--normal), sans-serif;
+    margin: 0;
+    margin: 0;
+    padding: 0;
+    color: var(--cor5);
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
+
+section{
+    min-height: 100vh;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    transition: var(--general-transition);
+}
+
+button:hover{
+    background-color: var(--cor6);
+    transform: scale(1.1);
+    color: white;
+}
+
+
+.section-hidden{
+    opacity: 0;
+    filter: blur(15px);
+    transition: all .7s ease;
+}
+
+.section-show{
+    opacity: 1;
+    filter: blur(0px);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration:  none;
+    color: var(--cor5);
+}
+
+i{
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* header styles */
+
+header{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.074);
+    z-index: 999;
+    height: 70px;
+}
+
+
+header #nav-bar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+#nav-bar #logo{
+    font-family: var(--bold);
+}
+
+#nav-bar #nav-list{
+    display: flex;
+    gap: 20px;
+}
+
+#nav-bar .link{
+    transition: var(--general-transition);
+    position: relative;
+}
+
+.link.activo{
+    font-family:  var(--bold), sans-serif;
+}
+
+.link.activo::before{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+
+#nav-bar #menu-toggle{
+    background-color: var(--cor1);
+    padding: 8px;
+    border-radius: 5px;
+    display: none;
+}
+
+/* section inicio style */
+
+#home-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.301);
+}
+
+@keyframes imganimation {
+    from{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#home-image{
+    width: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--cor2);
+    display: inline-block;
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#p{
+   font-size: 10px;
+}
+
+/* section sobre style */
+
+.section-title{
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.211);
+    font-family: var(--other);
+    margin-top: 100px;
+}
+
+.section-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+#about-content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#about-img{
+    width: 350px;
+    height: 350px;
+    transition: var(--general-transition);
+}
+
+/* section projectos style */
+
+#project-content{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.letra{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    transition: var(--general-transition);
+    border: 1px solid rgba(0, 0, 0, 0.379);
+    border-radius: 8px;
+}
+
+.letra-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0px;
+}
+
+.close{
+    background-color: var(--cor1);
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.music-letra{
+    padding: 10px;
+    margin-top: 100px;
+}
+
+.projecto{
+    transition: var(--general-transition);
+    position: relative;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projecto .more-options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: var(--general-transition);
+    border-radius: 10px;
+}
+
+.projecto:hover{
+    transform: scale(1.1);
+    opacity: .5;
+    background-color: rgba(0, 0, 0, 0.714);
+    color: white;
+}
+
+.projecto:hover .more-options{
+    opacity: .8;
+    background-color: rgb(0, 0, 0);
+}
+.projecto:hover .options{
+    opacity: 1;
+}
+
+.projecto > p{
+    margin: 0;
+    padding: 0;
+}
+
+.music-cover{
+    width: 250px;
+    height: 250px;
+}
+
+.options{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 2px;
+    z-index: 999;
+}
+
+.options .icon{
+    color: var(--cor2);
+    font-size: 25px;
+    transition: var(--general-transition);
+}
+
+.you, .sound, .down{
+    transition: var(--general-transition);
+}
+
+.you:hover{
+    color: red;
+    transform: scale(1.2);
+}
+
+.sound:hover{
+    color: orange;
+    transform: scale(1.2);
+}
+
+.down:hover{
+    color: green;
+    transform: scale(1.2);
+}
+
+.options>a{
+    padding: 5px;
+}
+
+/* section contactos style */
+
+#contact-content{
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.midia-social{
+    background-color: var(--cor2);
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    opacity: .5;
+    transition: var(--general-transition);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.254);
+}
+
+.social-name{
+    transition: var(--general-transition);
+}
+
+.midia-social:hover{
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.354);
+}
+.midia-social:hover .social-name{
+    color: var(--cor1);
+    transform: scale(1.1);
+}
+
+.midia-social .icon{
+    font-size: 80px;
+    color: var(--cor1);
+    transition: var(--general-transition);
+}
+
+.midia-social:hover .fb{
+    color: rgb(0, 81, 255);
+}
+
+.midia-social:hover .soundcloud{
+    color: orange;
+}
+
+.midia-social:hover .youtube{
+    color: rgb(255, 0, 0);
+}
+
+.midia-social:hover .sap{
+    color: rgb(0, 255, 55);
+}
+
+#sap{
+    position: relative;
+}
+
+#number{
+    background-color: #25261f;
+    position: absolute;
+    width: 100%;
+    color: var(--cor1);
+    height: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--general-transition);
+    z-index: 999;
+}
+
+#sap:hover > #number{
+    opacity: .8;
+    height: 100%;
+}
+
+/* media querys */
+
+@media (max-width: 500px) {
+    /* general media queries */
+    section{
+        width: 100%;
+    }
+
+    .section-content{
+        padding: 10px;
+    }
+
+    /* menu media query */
+    #nav-bar #menu-toggle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nav-bar #nav-list{
+        flex-direction: column;
+        background-color: var(--cor1);
+        position: absolute;
+        top: 75%;
+        width: 100%;
+        height: 100vh;
+        padding: 20px;
+        left: -110%;
+        transition: var(--general-transition);
+    }
+
+    #nav-bar #nav-list .nav-list-iten{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.045);
+        display: flex;
+    }
+
+    .nav-list-iten .link{
+        padding: 5px;
+        transition: var(--general-transition);
+        width: 100%;
+    }
+
+    .link:hover{
+        letter-spacing: 2px;
+    }
+
+    /* home section media query */
+    #home-content{
+        margin-top: 100px;
+    }
+
+
+    /* contact section media query */
+
+    .midia-social{
+        width: 150px;
+        height: 150px;
+        gap: 10px;
+    }
+
+    .midia-social .icon{
+        font-size: 50px;
+        margin-top: 10px;
+    }
+
+}
+
+@media screen and (max-width: 718px){
+    section{
+        width: 100%;
+    }
+
+    /* about */
+
+    #about-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #about-img{
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+    }
+
+    /* project */
+
+    .projecto > p{
+       font-size: 14px;
+    }
+
+    .music-cover{
+        width: 200px;
+        height: 200px;
+    }
+
+}
+@media screen and (max-width: 500px){
+    /* section projectos style */
+
+    #project-content{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .projecto{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .projecto > p{
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+    }
+
+    .projecto:hover{
+        transform: scale(1);
+    }
+
+    .music-cover{
+        width: 300px;
+        height: 300px;
+    }
+
+    .options{
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .options .icon{
+        font-size: 30px;
+    }
+
+}
