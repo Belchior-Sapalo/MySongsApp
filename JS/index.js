@@ -315,7 +315,7 @@ $(document).ready(()=>{
 
 
         $('.ver-letra').each((index, btn)=>{
-            const projectoPosY = document.getElementById('projectos').offsetTop - 100;
+            const projectoPosY = document.getElementById('projectos').offsetTop - 80;
             $(btn).click(()=>{
                 window.scrollTo(0,projectoPosY)
             })
