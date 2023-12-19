@@ -44,7 +44,7 @@ $(document).ready(()=>{
         const top = window.scrollY;
 
         $('.section').each((index, sec) => {
-            const posY = sec.offsetTop;
+            const posY = sec.offsetTop - 100;
             const heigth = sec.offsetHeight;
             console.log(heigth)
             const id = sec.id
@@ -313,6 +313,13 @@ $(document).ready(()=>{
             })
         })
 
+
+        $('.ver-letra').each((index, btn)=>{
+            const projectoPosY = document.getElementById('projectos').offsetTop - 100;
+            $(btn).click(()=>{
+                window.scrollTo(0,projectoPosY)
+            })
+        })
         
     
 })
